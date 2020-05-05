@@ -1,0 +1,16 @@
+Accion PARA ES;
+
+Ambiente
+	c: entero;
+
+Algoritmo
+	
+	{no necesito hacer: c := 1}
+
+	Para c := 1 hasta 10 hacer 
+		
+		Escribir (c);
+		
+	FinPara;
+	
+FinAccion.

@@ -1,0 +1,18 @@
+Accion REPETIR ES;
+
+Ambiente
+	c: entero;
+
+Algoritmo
+	
+	c:= 1;
+	
+	Repetir
+
+		Escribir (c);
+
+		c := c + 1;
+		
+	Hasta que c > 10;
+	
+FinAccion.

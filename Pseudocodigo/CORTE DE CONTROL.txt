@@ -1,0 +1,134 @@
+accion archivo_corte;
+
+	auto = registro
+		prov: AN[50];
+		dpto: entero;
+		ciu: entero;
+		dominio: AN[7];
+		modelo: entero;
+		tipo: AN[50];
+	fin_reg;
+	
+	reg: auto;
+	arch: ARCHIVO DE auto;
+
+	autos_mas_5_ciu, autos_mas_5_dpto, autos_mas_5_prov, autos_mas_5_tot: entero;
+	autos_menos_5_ciu, autos_menos_5_dpto, autos_menos_5_prov, autos_menos_5_tot: entero;
+	resg_prov: AN[50];
+	resg_ciu, resg_dpto: entero;
+	RecordCount, Anio_Actual: entero;
+
+Procedimiento Inicializar;
+	Proceso
+		autos_mas_5_ciu := 0; autos_mas_5_dpto := 0; autos_mas_5_prov := 0; 
+		autos_mas_5_tot := 0;
+		autos_menos_5_ciu := 0; autos_menos_5_dpto := 0; autos_menos_5_prov := 0; 
+		autos_menos_5_tot := 0;
+
+		//Hago el primer resguardo
+		resg_prov := reg.prov;
+		resg_dpto := reg.dpto;
+		resg_ciu := reg.ciu;
+
+	fin_proc;
+
+Procedimiento EmitirTotalesGenerales;
+	Proceso
+		ESCRIBIR('---------------------------------------------');
+		ESCRIBIR('Total PAIS -- Autos: ', autos_mas_5_tot + autos_menos_5_tot);
+		ESCRIBIR('Total PAIS -- Autos menos de 5 anios: ', autos_menos_5_tot);
+		ESCRIBIR('Total PAIS -- Autos mas o igual a 5 anios: ', autos_mas_5_tot);
+	fin_proc;
+
+Procedimiento CorteCiudad;
+	Proceso
+		//Escribo totales parciales
+		ESCRIBIR('Total ciudad: ', resg_ciu, ' -- Autos: ', autos_mas_5_ciu + autos_menos_5_ciu);
+		ESCRIBIR('Total ciudad -- Autos menos de 5 anios: ', autos_menos_5_ciu);
+		ESCRIBIR('Total ciudad -- Autos mas o igual a 5 anios: ', autos_mas_5_ciu);
+		//Acumulo a nivel superior
+		autos_mas_5_dpto := autos_mas_5_dpto + autos_mas_5_ciu;
+		autos_menos_5_dpto := autos_menos_5_dpto + autos_menos_5_ciu;
+		//Pongo cero los acumuladores de provincia
+		autos_mas_5_ciu := 0;
+		autos_menos_5_ciu := 0;
+		//Resguardo las claves
+		resg_ciu := reg.ciu;
+	fin_proc;
+
+Procedimiento CorteDpto;
+	Proceso
+		//Lamo al corte inferior
+		CorteCiudad;		
+		//Escribo totales parciales
+		ESCRIBIR('Total dpto: ', resg_dpto, ' -- Autos: ', autos_mas_5_dpto + autos_menos_5_dpto);
+		ESCRIBIR('Total dpto -- Autos menos de 5 anios: ', autos_menos_5_dpto);
+		ESCRIBIR('Total dpto -- Autos mas o igual a 5 anios: ', autos_mas_5_dpto);
+		//Acumulo a nivel superior
+		autos_mas_5_prov := autos_mas_5_prov + autos_mas_5_dpto;
+		autos_menos_5_prov := autos_menos_5_prov + autos_menos_5_dpto;
+		//Pongo cero los acumuladores de provincia
+		autos_mas_5_dpto := 0;
+		autos_menos_5_dpto := 0;
+		//Resguardo las claves
+		resg_dpto := reg.dpto;
+	fin_proc;
+
+Procedimiento CorteProvincia;
+	Proceso
+		//Lamo al corte inferior
+		CorteDpto;		
+		//Escribo totales parciales
+		ESCRIBIR('---------------------------------------------');
+		ESCRIBIR('Total provincia: ', resg_prov, ' -- Autos: ', autos_mas_5_prov + autos_menos_5_prov);
+		ESCRIBIR('Total provincia -- Autos menos de 5 anios: ', autos_menos_5_prov);
+		ESCRIBIR('Total provincia -- Autos mas o igual a 5 anios: ', autos_mas_5_prov);
+		//Acumulo a nivel superior
+		autos_mas_5_tot := autos_mas_5_tot + autos_mas_5_prov;
+		autos_menos_5_tot := autos_menos_5_tot + autos_menos_5_prov;
+		//Pongo cero los acumuladores de provincia
+		autos_mas_5_prov := 0;
+		autos_menos_5_prov := 0;
+		//Resguardo las claves
+		resg_prov := reg.prov;
+	fin_proc;
+
+Proceso
+	//Creo el archivo vacion
+	InicializarArchivo(arch);
+	
+	LEER(arch, reg);
+
+	//Inicializar variables y resguardos
+	Inicializar;
+
+	Anio_Actual := 2020;
+
+	MIENTRAS NFDA(arch) HACER
+		
+			SI resg_prov <> reg.prov then
+				CorteProvincia
+			SINO SI resg_dpto <> reg.dpto then
+					CorteDpto
+				 SINO SI resg_ciu <> reg.ciu then
+				 		CorteCiudad
+				 	  FIN_Si;
+				 FIN_SI;
+			FIN_SI;
+
+			//Tratar registro
+			SI Anio_Actual - reg.modelo <= 5 then
+				autos_menos_5_ciu := autos_menos_5_ciu + 1
+			SINO
+				autos_mas_5_ciu := autos_mas_5_ciu + 1;
+			FIN_SI;
+		
+			LEER(arch, reg);
+
+		FIN_MIENTRAS;
+
+	CorteProvincia;
+	EmitirTotalesGenerales;
+	CERRAR(arch);
+
+FIN_ACCION.

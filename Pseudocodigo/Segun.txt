@@ -1,0 +1,24 @@
+Accion SEGUN ES;
+
+Ambiente
+	c: entero;
+
+Algoritmo
+	
+	Escribir('Ingrese un valor entero de 1 a 7 y deterinamos el dia de la semana correspondiente...')
+	Leer(c);
+	
+	Segun c Hacer
+
+		1: Escribir ('LUNES');				
+		2: Escribir ('MARTES');				
+		3: Escribir ('MIERCOLES');		
+		4: Escribir ('JUEVES');		
+		5: Escribir ('VIERNES');		
+		6: Escribir ('SABADO');		
+		7: Escribir ('DOMINGO');	
+	Contrario
+		Escribir('Entre 1 y 7!!!!!!');					
+	FinSegun;
+	
+FinAccion.

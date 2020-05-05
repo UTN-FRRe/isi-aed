@@ -1,0 +1,41 @@
+Accion REGISTRO ES;
+
+Ambiente
+	fecha = REGISTRO
+			dia: 1..31;
+			mes: 1..12;
+			año: 1900..9999;
+	fin_registro;	
+
+	persona = REGISTRO
+		nombre: AN(50);
+		dir: AN(50);
+		mail: AN(80);
+		fecha_nac: fecha;
+	fin_registro;
+
+	reg: persona;
+
+
+Algoritmo
+	
+	ESCRIBIR('Ingrese los datos de la persona...');
+
+	ESCRIBIR('Nombre:');
+	LEER(reg.nombre);
+
+	ESCRIBIR('Direccion:');
+	LEER(reg.dir);
+
+	ESCRIBIR('Correo electronico:');
+	LEER(reg.mail);
+
+	ESCRIBIR('Fecha de nacimiento:');
+	LEER(reg.fecha_nac.dia, reg.fecha_nac.mes, reg.fecha_nac.año);
+
+	ESCRIBIR('******************************************');
+
+	ESCRIBIR('Datos ingresados:');
+	ESCRIBIR(reg.nombre, ' ',  reg.dir, ' ', reg.mail, ' ', reg.fecha_nac.dia, '/', reg.fecha_nac.mes, '/', reg.fecha_nac.año);
+
+FinAccion.

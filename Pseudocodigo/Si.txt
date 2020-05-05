@@ -1,0 +1,17 @@
+Accion SI ES;
+
+Ambiente
+	c: entero;
+
+Algoritmo
+	
+	Escribir('Ingrese un valor entero, vamos a verificar si es multiplo de 10...')
+	Leer(c);
+	
+	Si c MOD 10 = 0 Entonces
+
+		Escribir ('Es multiplo de 10!!');		
+
+	FinSi;
+	
+FinAccion.

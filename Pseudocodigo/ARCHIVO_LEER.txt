@@ -1,0 +1,36 @@
+Accion REGISTRO ES;
+
+Ambiente
+	fecha = REGISTRO
+			dia: 1..31;
+			mes: 1..12;
+			año: 1900..9999;
+	fin_registro;	
+
+	persona = REGISTRO
+		nombre: AN(50);
+		dir: AN(50);
+		mail: AN(80);
+		fecha_nac: fecha;
+	fin_registro;
+
+	reg: persona;
+	arch: ARCHIVO de persona;
+
+Algoritmo
+	
+	ABRIRe(arch);
+	LEER(arch, reg);
+
+	ESCRIBIR("Nombre --  Domicilio -- E-Mail -- Nacimiento: Dia / Mes / Año")
+
+	MIENTRAS NFDA(arch) HACER
+
+		ESCRIBIR(reg.nombre, reg.dir, reg.mail, reg.fecha_nac.dia, "/", reg.fecha_nac.mes, "/", reg.fecha_nac.año)
+
+		LEER(arch, reg);
+
+	FinMientras;
+
+	CERRAR(arch);
+FinAccion.

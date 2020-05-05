@@ -1,0 +1,109 @@
+accion archivo_corte;
+
+	ejemplo = registro
+		clave1: AN[50];
+		clave2: entero;
+		clave3: entero;
+		campo1: AN[7];
+		campo2: entero;
+		campo3: AN[50];
+	fin_reg;
+	
+	reg: ejemplo;
+	arch: ARCHIVO DE ejemplo;
+
+	[CONTADORES Y ACUMULADORES]
+
+	[RESGUARDOS];
+	resg_clave1: AN[50];
+	resg_clave2: entero;
+	resg_clave3: entero;
+	
+Procedimiento Inicializar;
+	Proceso
+		[Inicializo CONTADORES y ACUMULADORES]
+
+		[Inicializo RESGUARDO INICIAL]		
+		resg_clave1 := reg.clave1;
+		resg_clave2 := reg.clave2;
+		resg_clave3 := reg.clave3;
+
+	fin_proc;
+
+Procedimiento EmitirTotalesGenerales;
+	Proceso
+		[TOTALES GENERALES]
+	fin_proc;
+
+Procedimiento CorteClave1;
+	Proceso
+		//Lamo al corte inferior
+		CorteClave2;		
+
+		//Escribo totales parciales
+		//Acumulo a nivel superior (TOTALES GENERALES)
+		//Pongo cero los acumuladores de clave1		
+
+		//Resguardo las claves
+		resg_clave1 := reg.clave1;
+	fin_proc;
+
+Procedimiento CorteClave2;
+	Proceso
+		//Lamo al corte inferior
+		CorteClave3;		
+
+		//Escribo totales parciales
+		//Acumulo a nivel superior
+		//Pongo cero los acumuladores de clave1		
+		
+		//Resguardo las claves
+		resg_clave2 := reg.clave2;
+	fin_proc;
+
+Procedimiento CorteClave3;
+	Proceso
+		//Escribo totales parciales
+		//Acumulo a nivel superior
+		//Pongo cero los acumuladores de clave1		
+		
+		//Resguardo las claves
+		resg_clave3 := reg.clave3;
+	fin_proc;
+
+Proceso
+	//Abro el archivo solo lectura
+	ABRIRe(arch);
+	
+	//Obtengo el 1er registro
+	LEER(arch, reg);
+
+	//Inicializar variables y resguardos
+	Inicializar;
+
+	MIENTRAS NFDA(arch) HACER
+		
+			[TRATAR CORTE]
+
+			SI resg_clave1 <> reg.clave1 then
+				CorteClave1
+			SINO SI resg_clave2 <> reg.clave2 then
+					CorteClave2
+				 SINO SI resg_clave3 <> reg.clave3 then
+				 		CorteClave3
+				 	  FIN_Si;
+				 FIN_SI;
+			FIN_SI;
+
+
+			[TRATAR REGISTRO]			
+		
+			LEER(arch, reg);
+
+		FIN_MIENTRAS;
+
+	CorteClave1;
+	EmitirTotalesGenerales;
+	CERRAR(arch);
+
+FIN_ACCION.

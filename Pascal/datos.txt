@@ -1,0 +1,102 @@
+﻿Maximo;Domicilio;Maximolemos3@gmail.com;06;04;2020
+Agustin;Domicilio;almontano01@gmail.com;06;04;2020
+D Nicolas Agustin;Domicilio;quirozn080@gmail.com;06;04;2020
+emma B;Domicilio;emma53stone@gmail.com;13;04;2020
+fernando;Domicilio;fernandogesteira@hotmail.com;06;04;2020
+Alexis;Domicilio;alexisdamiangomez048@hotmail.com;06;04;2020
+D Malena Ayelen;Domicilio;malena.ayelen.fab@gmail.com;06;04;2020
+D Lucas;Domicilio;Lucassarmientoutn@gmail.com;06;04;2020
+D  luana evelin;Domicilio;luanagarcia495@gmail.com;06;04;2020
+D Joaquin;Domicilio;joaquindesza@gmail.com;13;04;2020
+Juancho Ojeda;Domicilio;juancho.o08@hotmail.com;06;04;2020
+D Elisabeth;Domicilio;gelisabethandrea@gmail.com;06;04;2020
+Ezequiel;Domicilio;ezzequiel0110@gmail.com;06;04;2020
+Jesus;Domicilio;agustinalegre@live.com;06;04;2020
+Juan;Domicilio;juanramirezpesce@gmail.com;06;04;2020
+Federico;Domicilio;matusevichfederico@gmail.com;06;04;2020
+Fernando Nicolas;Domicilio;Fernando080gomez@gmail.com;06;04;2020
+Josué David;Domicilio;juncosjosue@gmail.com;06;04;2020
+Lautaro;Domicilio;lautygz@outlook.com;06;04;2020
+Nicolas;Domicilio;nicolas_sebastian_1999@hotmail.com;07;04;2020
+Adriel;Domicilio;gallegoadriel99@gmail.com;06;04;2020
+Enrique;Domicilio;ricardoenriquegomez.utn@gmail.com;06;04;2020
+Julieta;Domicilio;julitor07@hotmail.com;06;04;2020
+Pablo;Domicilio;pabloalegre98@outlook.com;13;04;2020
+Federico;Domicilio;fedearanda08@gmail.com;06;04;2020
+D Ignacio;Domicilio;nacho_xeneize00@hotmail.com;13;04;2020
+Juan;Domicilio;juandelgado@live.com.ar;06;04;2020
+Pablo;Domicilio;plarroza01@gmail.com;06;04;2020
+Braian;Domicilio;bramaxx05@gmail.com;06;04;2020
+Marcos;Domicilio;oscilacionpermanente@hotmail.com;06;04;2020
+Luka;Domicilio;lukavioa09@hotmail.com;06;04;2020
+Carlos;Domicilio;c.airala97@gmail.com;06;04;2020
+ISI C];Domicilio;mariaclaudiasantacruz70@gmail.com;08;04;2020
+Facundo;Domicilio;facundo716@gmail.com;06;04;2020
+Lautaro;Domicilio;azulcobalto22@gmail.com;06;04;2020
+DMauricio;Domicilio;maurigimenez1@gmail.com;06;04;2020
+Hernan;Domicilio;hernan78dominguez@yahoo.com.ar;08;04;2020
+Florencia;Domicilio;aguirreflomik@gmail.com;06;04;2020
+D Hugo Orlando Exequiel;Domicilio;exequiela25@gmail.com;06;04;2020
+natasha;Domicilio;natashanicole@hotmail.com;06;04;2020
+Franco Agustín;Domicilio;francogaunabuss2@gmail.com;06;04;2020
+Mauricio;Domicilio;rizzoli_mauricio@hotmail.com;06;04;2020
+cain;Domicilio;cain.bader@gmail.com;13;04;2020
+Jessica;Domicilio;Esquiveljessi11@gmail.com;06;04;2020
+D Karen Naomi;Domicilio;naomi.30.coronel@gmail.com;06;04;2020
+Lautaro Gonzalez;Domicilio;m4flow.arrow@gmail.com;06;04;2020
+Alejandro;Domicilio;alejandro.david.benolol@gmail.com;06;04;2020
+Agustín;Domicilio;floresagustin1234@gmail.com;06;04;2020
+DAndrés;Domicilio;ajjm1998@gmail.com;06;04;2020
+D Priscila;Domicilio;prisciceles@gmail.com;06;04;2020
+Juan manuel;Domicilio;roblesc4rp@gmail.com;06;04;2020
+Martin;Domicilio;capnahu1@gmail.com;06;04;2020
+DJosé Valentín;Domicilio;valentinjosecordon27@gmail.com;06;04;2020
+Jeronimo;Domicilio;jeronimotula2015@gmail.com;06;04;2020
+Fernando;Domicilio;fernandomino170@gmail.com;06;04;2020
+agustin alegre;Domicilio;agustinalegre323@gmail.com;06;04;2020
+Selena;Domicilio;Selena_barreto@hotmail.com;06;04;2020
+DFabian;Domicilio;fdserafini@gmail.com;06;04;2020
+Gisela;Domicilio;Ggise698@gmail.com;06;04;2020
+DGonzalo;Domicilio;gonzahag@gmail.com;06;04;2020
+Lucas;Domicilio;lukasmonticelli1998@gmail.com;06;04;2020
+Gise Ara Garcia;Domicilio;gisela_ara@hotmail.com;13;04;2020
+Juan José;Domicilio;juanfavilla23@gmail.com;06;04;2020
+juan;Domicilio;juancho.ojeda11@gmail.com;06;04;2020
+Nicolas Alejandro;Domicilio;niko0525@outlook.es;06;04;2020
+Ilse;Domicilio;ilsegh@ca.frre.utn.edu.ar;13;04;2020
+Antonio;Domicilio;agutierrez.cont@gmail.com;06;04;2020
+Marcela Julieta;Domicilio;marcejuluc02@gmail.com;06;04;2020
+D Alan;Domicilio;alanguti@outlook.com;06;04;2020
+DFacundo;Domicilio;facundoalmaraz8@gmail.com;13;04;2020
+ISI-DEnzo;Domicilio;enzo-2304@hotmail.com;06;04;2020
+Nahuel;Domicilio;nahuelmasacote52@gmail.com;06;04;2020
+Palacios;Domicilio;leandrogpalacios@hotmail.com;06;04;2020
+Marcelo;Domicilio;Sosamarcelo897@gmail.com;08;04;2020
+Javier;Domicilio;javier.javier@live.com.ar;06;04;2020
+Felipe;Domicilio;gomezfelipeariel@gmail.com;06;04;2020
+Demian Matias;Domicilio;coriamati5@gmail.com;06;04;2020
+Nicolás;Domicilio;nicolas_txnxdx@hotmail.com;06;04;2020
+Santiago;Domicilio;SantiNick28@gmail.com;06;04;2020
+DManuel;Domicilio;manu.rodriguez.serrano@gmail.com;06;04;2020
+Alexis Kviatkovski;Domicilio;alexiskviatkovski9@gmail.com;06;04;2020
+Ivan;Domicilio;iiniveyro@gmail.com;06;04;2020
+Kevin;Domicilio;kos1617@gmail.com;06;04;2020
+pablo;Domicilio;pablis35@hotmail.com;06;04;2020
+D Florencia;Domicilio;floppy1933@gmail.com;06;04;2020
+C Carlos;Domicilio;CarlitosMauricioMazzaroli@outlook.com;06;04;2020
+Maia Ostolaza;Domicilio;ostolazamaia@gmail.com;06;04;2020
+Lucas;Domicilio;lucas.sebib@gmail.com;13;04;2020
+Gabriele;Domicilio;franco.nicoo.fg@gmail.com;06;04;2020
+Gilberto;Domicilio;gparodi@live.com.ar;06;04;2020
+Nicolás;Domicilio;nicolasluque0013@gmail.com;06;04;2020
+D Daiana;Domicilio;daiana.kovacs@gmail.com;06;04;2020
+D Oscar Martin;Domicilio;sulca.martin84@gmail.com;06;04;2020
+D-Mirko;Domicilio;mirkoangel1@outlook.com;06;04;2020
+Johana;Domicilio;Joha15bovero99@gmail.com;06;04;2020
+ivan ignacio;Domicilio;ignacio_pin@hotmail.com;06;04;2020
+Luis;Domicilio;infoluisespinoza@gmail.com;06;04;2020
+Lucas;Domicilio;sanabrialucas97@gmail.com;06;04;2020
+jordan;Domicilio;erik.larcher@gmail.com;06;04;2020
+MARCELO;Domicilio;marcealegre70@gmail.com;06;04;2020
+Juan Cruz;Domicilio;juancruznoebernachea@gmail.com;06;04;2020
+Franco;Domicilio;francomugnier1998@gmail.com;06;04;2020

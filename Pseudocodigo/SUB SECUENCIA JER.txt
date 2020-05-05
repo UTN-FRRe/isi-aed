@@ -1,0 +1,44 @@
+Accion SECUENCIA ES;
+
+Ambiente
+	sec: SECUENCIA de caracter;
+	v: caracter;
+	i: entero;
+
+Procedimiento InicializarSecuencia(VAR sec_local: SECUENCIA de caracter);
+	
+	Algoritmo
+
+		ARR(sec_local);				
+
+Fin;
+
+
+Algoritmo
+	
+	InicializarSecuencia(sec);
+	
+	AVZ(Sec, v);
+
+	MIENTRAS NFDS(sec) HACER
+
+		MIENTRAS v <> '.' HACER
+			
+			MIENTRAS v = ' ' HACER
+				AVZ(Sec, v);
+			FIN_MIENTRAS;
+
+			MIENTRAS (v <> ' ') y (v <> '.')  HACER
+				ESCRIBIR(v);
+
+				AVZ(Sec, v);
+			FIN_MIENTRAS;
+
+		FIN_MIENTRAS;
+
+
+		AVZ(sec, v);
+	FIN_MIENTRAS;
+	
+	CERRAR(Sec);
+FinAccion.

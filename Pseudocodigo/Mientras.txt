@@ -1,0 +1,18 @@
+Accion MIENTRAS ES;
+
+Ambiente
+	c: entero;
+
+Algoritmo
+	
+	c:= 1;
+	
+	Mientras c <= 10 hacer
+
+		Escribir (c);
+
+		c := c + 1;
+
+	FinMientras;
+	
+FinAccion.

@@ -1,0 +1,22 @@
+Accion PROCEDIMIENTO ES;
+
+Ambiente
+	s: alfanumerico(50);
+
+Procedimiento Saludo (text: alfanumerico(50));		
+
+	Proceso
+
+		Escribir('**************************');
+		Escribir(text);
+		Escribir('**************************');
+Fin;
+
+Proceso
+	
+	Escribir('Ingrese texto para el saludo inicial...');
+	Leer(s);
+	
+	Saludo(s);
+	
+FinAccion.

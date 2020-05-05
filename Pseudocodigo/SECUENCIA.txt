@@ -1,0 +1,28 @@
+Accion SECUENCIA ES;
+
+Ambiente
+	sec: SECUENCIA de caracter;
+	v: caracter;
+
+Procedimiento InicializarSecuencia(VAR sec_local: SECUENCIA de caracter);
+	
+	Proceso
+
+		ARR(sec_local);				
+
+Fin;
+
+
+Proceso
+	
+	InicializarSecuencia(sec);
+	AVZ(Sec, v);
+
+	MIENTRAS NFDS(sec) HACER
+		ESCRIBIR(v);
+
+		AVZ(Sec, v);
+	FIN_MIENTRAS;
+	
+	CERRAR(Sec);
+FinAccion.

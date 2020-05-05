@@ -1,0 +1,60 @@
+Accion SECUENCIA ES;
+
+Ambiente
+	sec: SECUENCIA de caracter;
+	v: caracter;
+	i: entero;
+
+Procedimiento InicializarSecuencia(VAR sec_local: SECUENCIA de caracter);
+	
+	Algoritmo
+
+		ARR(sec_local);				
+
+Fin;
+
+Procedimiento TratarNombre(VAR sec_local: SECUENCIA de caracter, v: caracter);
+	
+	Algoritmo
+
+		MIENTRAS v <> '-' HACER
+			ESCRIBIR(v);
+
+			AVZ(sec_local, v);
+		FIN_MIENTRAS;
+
+
+Fin;
+
+Procedimiento TratarDNI(VAR sec_local: SECUENCIA de caracter, v: caracter);
+	
+	Algoritmo
+
+		PARA i := 1 HASTA 8, 1 HACER
+			ESCRIBIR(v);
+
+			AVZ(sec_local, v);
+		FIN_MIENTRAS;
+
+Fin;
+
+
+Algoritmo
+	
+	InicializarSecuencia(sec);
+	
+	AVZ(Sec, v);
+
+	MIENTRAS NFDS(sec) HACER
+
+		TratarNombre(sec, v);
+
+		{Avanzo el guión}
+		AVZ(sec, v);
+
+		TratarDNI(sec, v);
+
+	FIN_MIENTRAS;
+	
+	CERRAR(Sec);
+FinAccion.

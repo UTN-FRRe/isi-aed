@@ -1,0 +1,26 @@
+Accion FUNCION ES;
+
+Ambiente
+	b, c: entero;
+
+Funcion Suma (x, y: Entero): Entero;
+	Ambiente
+		Total: Entero;
+
+	Algoritmo
+
+		Total := x + y;
+
+		{Asigno el valor a retornar}
+		Suma := Total;
+	
+Fin;
+
+Algoritmo
+	
+	Escribir('Ingrese dos valores enteros a sumar:');
+	Leer(b, c);
+	
+	Escribir('La suma es: ', Suma(b, c));
+	
+FinAccion.
