@@ -1,0 +1,88 @@
+accion archivo_corte;
+	
+	fecha = registro
+		dia, mes, año: entero;
+	fin_reg;
+
+	ejemplo = registro
+		Pcia: entero;
+		Loc: entero;
+		Suc: AN[50];
+		fechaventa: fecha;
+		Nombre: AN[80];
+		Precio: real;
+		Cantidad: entero;
+	fin_reg;
+	
+	reg: ejemplo;
+	arch: ARCHIVO DE ejemplo;
+
+	acum_ciudad, acum_pcia: real;
+
+	resg_pcia: entero;
+	resg_ciu: entero;
+	
+Procedimiento Inicializar;
+	Proceso
+		acum_ciudad := 0;
+		acum_pcia: real := 0;
+
+		resg_clave1 := reg.Pcia;
+		resg_clave2 := reg.Loc;
+
+	fin_proc;
+
+Procedimiento CorteClave1;
+	Proceso
+		//Lamo al corte inferior
+		CorteClave2;		
+
+		//Escribo totales parciales
+		ESC("Total pcia:", resg_clave1, " = ", acum_pcia);
+
+		//Pongo cero los acumuladores de clave1		
+		acum_pcia := 0;
+
+		//Resguardo las claves
+		resg_clave1 := reg.Pcia;
+	fin_proc;
+
+Procedimiento CorteClave2;
+	Proceso
+		//Escribo totales parciales
+		ESC("Total loc:", resg_clave2, " = ", acum_loc);		
+
+		//Acumulo a nivel superior
+		acum_pcia := acum_pcia + acum_loc;
+
+		//Pongo cero los acumuladores de clave1		
+		acum_loc := 0;		
+
+		//Resguardo las claves
+		resg_clave2 := reg.clave2;
+	fin_proc;
+
+Proceso
+	ABRIRe(arch);	
+	LEER(arch, reg);
+
+	Inicializar;
+
+	MIENTRAS NFDA(arch) HACER
+		
+			SI resg_clave1 <> reg.pcia then
+				CorteClave1
+			SINO SI resg_clave2 <> reg.loc then
+					CorteClave2
+				FIN_SI;
+
+			acum_loc := acum_loc + (reg.Precio * reg.Cant);
+		
+			LEER(arch, reg);
+
+	FIN_MIENTRAS;
+
+	CorteClave1;
+	CERRAR(arch);
+
+FIN_ACCION.

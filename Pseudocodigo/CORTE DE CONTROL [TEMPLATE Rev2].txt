@@ -1,0 +1,94 @@
+accion archivo_corte;
+	
+	fecha = registro
+		dia, mes, año: entero;
+	fin_reg;
+
+	ejemplo = registro
+		clave1: entero;
+		clave2: entero;
+		Suc: AN[50];
+		fechaventa: fecha;
+		Nombre: AN[80];
+		Precio: real;
+		Cantidad: entero;
+	fin_reg;
+	
+	reg: ejemplo;
+	arch: ARCHIVO DE ejemplo;
+
+	acum_clave1, acum_clave2: real;
+
+	resg_pcia: entero;
+	resg_ciu: entero;
+	
+Procedimiento Inicializar;
+	Proceso
+		[Inicializo CONTADORES y ACUMULADORES]
+
+		[Inicializo RESGUARDO INICIAL]		
+		resg_clave1 := reg.clave1;
+		resg_clave2 := reg.clave2;
+
+	fin_proc;
+
+Procedimiento EmitirTotalesGenerales;
+	Proceso
+		[TOTALES GENERALES]
+	fin_proc;
+
+Procedimiento CorteClave1;
+	Proceso
+		//Lamo al corte inferior
+		CorteClave2;		
+
+		//Escribo totales parciales
+		//Acumulo a nivel superior (TOTALES GENERALES)
+		//Pongo cero los acumuladores de clave1		
+
+		//Resguardo las claves
+		resg_clave1 := reg.clave1;
+	fin_proc;
+
+Procedimiento CorteClave2;
+	Proceso
+		//Escribo totales parciales
+		//Acumulo a nivel superior
+		//Pongo cero los acumuladores de clave1		
+		
+		//Resguardo las claves
+		resg_clave2 := reg.clave2;
+	fin_proc;
+
+Proceso
+	//Abro el archivo solo lectura
+	ABRIRe(arch);
+	
+	//Obtengo el 1er registro
+	LEER(arch, reg);
+
+	//Inicializar variables y resguardos
+	Inicializar;
+
+	MIENTRAS NFDA(arch) HACER
+		
+			[TRATAR CORTE]
+
+			SI resg_clave1 <> reg.clave1 then
+				CorteClave1
+			SINO SI resg_clave2 <> reg.clave2 then
+					CorteClave2
+				FIN_SI;
+
+
+			[TRATAR REGISTRO]			
+		
+			LEER(arch, reg);
+
+		FIN_MIENTRAS;
+
+	CorteClave1;
+	EmitirTotalesGenerales;
+	CERRAR(arch);
+
+FIN_ACCION.
