@@ -1,35 +1,61 @@
 program archivo_crear;
-uses crt, SysUtils;
+uses crt, SysUtils, Math;
 
 type
 
-	auto = record
-		prov: string[50];
-		dpto: integer;
-		ciu: integer;
-		dominio: string[7];
-		modelo: integer;
-		tipo: string[50];
+//Rubro;DIA;MES;ANIO;CodProducto;Producto;PrecioVenta;Cantidad
+	fecha = record
+		dia, mes, anio: integer;
+	end;
+
+	venta = record
+		rubro: string[80];
+		fechaventa: fecha;
+		cod: longint;
+		prod: string[80];
+		precio: longint;
+		cant: longint;
 	end;
 	
 	//Creo un tipo de dato para poder usar en los parametros
-	archivo_autos = file of auto;
+	archivo_ventas = file of venta;
 	archivo_origen = text;
 
 var
-	reg: auto;
-	arch: archivo_autos; //Uso el tipo de dato definido
+	reg: venta;
+	arch: archivo_ventas; //Uso el tipo de dato definido
 	
 	sec: archivo_origen;
 	registro: string;
 
 	RecordCount: integer;
 
-Procedure InicializarArchivo(VAR arch_local: archivo_autos);
+function TratarPuntoFlotante(s: string): double;
+	var
+  		x: Double;
+  		fs: TFormatSettings;
+
+	begin
+
+		x := NaN;
+		fs := FormatSettings;
+  		fs.DecimalSeparator := '.';
+  		fs.ThousandSeparator := ',';
+
+  		if not TryStrToFloat(s, x, fs) then 
+			x := NaN;
+
+  		if IsNaN(x) then
+    		TratarPuntoFlotante := 0.0
+  		else
+    		TratarPuntoFlotante := StrToFloat(s);
+	end;
+
+Procedure InicializarArchivo(VAR arch_local: archivo_ventas);
 	
 	begin
 
-		assign(arch_local, 'datos_auto.dat');
+		assign(arch_local, 'datos_venta.dat');
 
 		//Control de acciones sobre el archivo
 		{$I-}				
@@ -47,7 +73,7 @@ Procedure InicializarOrigen(VAR sec_local: archivo_origen);
 	
 	begin
 
-		assign(sec_local, 'datos_para_corte.csv');
+		assign(sec_local, 'Ventas1.csv');
 
 		//Control de acciones sobre el archivo
 		{$I-}				
@@ -61,7 +87,7 @@ Procedure InicializarOrigen(VAR sec_local: archivo_origen);
 
 	end;
 
-Procedure tratarRegistroTxt(reg_txt_local: string; VAR reg_local: auto);
+Procedure tratarRegistroTxt(reg_txt_local: string; VAR reg_local: venta);
 	var 
 		i: integer;
 		count: integer;
@@ -69,12 +95,23 @@ Procedure tratarRegistroTxt(reg_txt_local: string; VAR reg_local: auto);
 
 	begin
 		//Para reales usar conversion StrToFloat()
-		//Inicializo variables
-		reg_local.prov := '';
-		reg_local.dpto := 0;
-		reg_local.ciu := 0;
-		reg_local.dominio := '';
-		reg_local.modelo := 0;
+		{ Inicializo variables
+			rubro: integer;
+			fechaventa: fecha;
+			cod: integer;
+			prod: string[80];
+			precio: double;
+			cant: double;
+		}
+
+		reg_local.rubro := '';
+		reg_local.fechaventa.dia := 0;
+		reg_local.fechaventa.dia := 0;
+		reg_local.fechaventa.anio := 0;
+		reg_local.cod := 0;
+		reg_local.prod := '';
+		reg_local.precio := 0;
+		reg_local.cant := 0;
 
 		field := '';
 		count := 0;
@@ -90,11 +127,13 @@ Procedure tratarRegistroTxt(reg_txt_local: string; VAR reg_local: auto);
 						count := count + 1;
 
 						case count of
-							1: reg_local.prov := field; 							   
-							2: reg_local.dpto := StrToInt(field);
-							3: reg_local.ciu := StrToInt(field);
-							4: reg_local.dominio := field;
-							5: reg_local.modelo := StrToInt(field);						
+							1: reg_local.rubro := field;
+							2: reg_local.fechaventa.dia := StrToInt(field);
+							3: reg_local.fechaventa.dia := StrToInt(field);
+							4: reg_local.fechaventa.anio := StrToInt(field);
+							5: reg_local.cod := StrToInt(field);						
+							6: reg_local.prod := field;						
+							7: reg_local.precio := StrToInt(field); 
 						end;
 
 						field := '';
@@ -103,7 +142,7 @@ Procedure tratarRegistroTxt(reg_txt_local: string; VAR reg_local: auto);
 				//Trato el ultimo campo
 				if i = Length(reg_txt_local) then
 					begin
-						reg_local.tipo := field;							
+						reg_local.cant := StrToInt(field);
 						field := '';
 					end;
 			end;
@@ -134,7 +173,7 @@ begin
 
 			//Pauso para ver los registros que se tratan
 			RecordCount := RecordCount + 1;
-			if RecordCount mod 10 = 0 then delay(1500);
+			if RecordCount mod 100 = 0 then delay(1000);
 		end;
 
 	writeln('PROCESO TERMINADO!!!!');
