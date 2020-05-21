@@ -1,0 +1,52 @@
+Accion MEZCLA_EXC ES;
+
+Ambiente
+
+	ejemplo = REGISTRO
+		clave: Entero;
+		Campo1: AN(50);
+		Campo2: AN(50);
+		Campo3: AN(80);
+		Campo4: Real;
+	fin_registro;
+
+	reg1, reg2: ejemplo;
+	arch1, arch2: ARCHIVO de ejemplo;
+
+PROCESO
+	
+	ABRIRe(arch1); ABRIRe(arch2); 
+	LEER(arch1, reg1); LEER(arch2, reg2);
+	
+
+	MIENTRAS NoFDA(arch1) y NoFDA(arch2) HACER
+
+		SI reg1.clave < reg2.clave ENTONCES
+			[ACCIONES_ARCH1];
+			LEER(arch1, reg1);
+		SINO
+			SI reg1.clave = reg2.clave ENTONCES
+				[ACCIONES_ARCH1];
+				LEER(arch1, reg1);
+
+				[ACCIONES_ARCH2];
+				LEER(arch2, reg2);
+			SINO
+				[ACCIONES_ARCH2];
+				LEER(arch2, reg2);
+			FIN_SI;
+
+	FIN_MIENTRAS;
+
+	MIENTRAS NoFDA(arch1) HACER
+		[ACCIONES_ARCH1];
+		LEER(arch1, reg1);
+	FIN_MIENTRAS;
+
+	MIENTRAS NoFDA(arch2) HACER
+		[ACCIONES_ARCH2];
+		LEER(arch2, reg2);
+	FIN_MIENTRAS;
+
+	CERRAR(arch1); CERRAR(arch2); 
+FinAccion.
