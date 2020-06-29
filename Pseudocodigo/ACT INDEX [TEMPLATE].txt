@@ -1,0 +1,119 @@
+Accion ACT_INDEX_1 ES;
+
+Ambiente	
+	mae = REGISTRO
+		clave: Entero;
+		Campo1: AN(50);
+		Campo2: AN(50);
+		Campo3: AN(80);
+		Campo4: Real;
+		Baja: caracter;
+	fin_registro;	
+
+	reg_mae: mae;
+	arch_mae: ARCHIVO de mae INDEXADO por clave;
+
+	Campo1: AN(50);
+	Campo2: AN(50);
+	Campo3: AN(80);
+	Campo4: Real;
+	op, acc: caracter;
+
+Procedimiento MODIF_BAJA(TipoMov: caracter);
+	ESC('Ingrese clave');
+	LEER(reg_mae.clave);
+
+	//Leo en el archivo MAESTRO
+	LEER(arch_mae, reg_mae);
+
+	SI EXISTE ENTONCES
+
+		SI TipoMov = 'B' ENTONCES
+			reg_mae.Baja := '*';
+		SINO			
+			ESC('Ingrese Campo1: ');
+			LEER(Campo1);
+
+			SI Campo1 <> '' ENTONCES
+				reg_mae.Campo1 := Campo1;
+			FIN_SI;
+
+			ESC('Ingrese Campo2: ');
+			LEER(Campo2);
+
+			SI Campo2 <> '' ENTONCES
+				reg_mae.Campo2 := Campo2;
+			FIN_SI;
+
+			[...]
+
+			ESC('Ingrese Campo4: ');
+			LEER(Campo4);
+
+			SI Campo4 <> 0 ENTONCES
+				reg_mae.Campo4 := Campo4;
+			FIN_SI;		
+
+		FIN_SI;
+
+		//Grabo en el MAESTRO el registro modificado
+		RE-ESCRIBIR(arch_mae, reg_mae);
+
+	SINO	
+		ESC('ERROR, REGISTRO NO EXISTE!!!');
+	FIN_SI
+Fin_Proc;
+
+Procedimiento ALTA;
+	ESC('Ingrese clave');
+	LEER(reg_mae.clave);
+
+	//Leo en el archivo MAESTRO
+	LEER(arch_mae, reg_mae);
+
+	SI EXISTE ENTONCES
+		ESC('ERROR, REGISTRO YA EXISTE!!!');
+	SINO	
+		ESC('Ingrese Campo1: ');
+		LEER(reg_mae.Campo1);
+		ESC('Ingrese Campo2: ');
+		LEER(reg_mae.Campo2);
+		[...]
+		ESC('Ingrese Campo4: ');
+		LEER(reg_mae.Campo4);
+
+		reg_mae.Baja := '-';		
+
+		ESCRIBIR(arch_mae, reg_mae);
+	FIN_SI;
+Fin_Proc;
+
+
+PROCESO	
+	ABRIR E/S(arch_mae); 
+	
+	ESC('Ingrese opción para continuar S/N');
+	LEER(op);
+	
+	MIENTRAS (op = 'S') HACER
+
+		ESC('Ingrese accion A/B/M');
+		LEER(acc);
+
+		SEGUN acc HACER
+			'A': ALTA;
+			'B', 'M': MODIF_BAJA(acc);			
+		CONTRARIO:
+			ESC('Accion INCORRECTA');
+		FIN_SEGUN;		
+
+		ESC('Ingrese opción para continuar S/N');
+		LEER(op);
+
+	FIN_MIENTRAS;
+
+	CERRAR(arch_mae); 
+FinAccion.
+
+
+

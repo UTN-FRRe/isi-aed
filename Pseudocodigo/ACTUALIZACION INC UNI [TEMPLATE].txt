@@ -1,0 +1,121 @@
+Accion ACT_INC ES;
+
+Ambiente
+	HV = 99999999;
+
+	mae = REGISTRO
+		clave: Entero;
+		Campo1: AN(50);
+		Campo2: AN(50);
+		Campo3: AN(80);
+		Campo4: Real;
+		Baja: Caracter;
+	fin_registro;	
+
+	mov = REGISTRO
+		clave: Entero;
+		Campo1: AN(50);
+		Campo2: AN(50);
+		Campo3: AN(80);
+		Campo4: Real;
+		TipoMov: ('A', 'B', 'M');
+	fin_registro;	
+
+	reg_mae: mae;
+	arch_mae, arch_mae_act: ARCHIVO de mae;
+
+	reg_mov: mov;
+	arch_mov: ARCHIVO de mov;
+
+Procedimiento LEER_arch_mae;
+	LEER(arch_mae, reg_mae);
+	SI FDA(arch_mae) ENTONCES
+		reg_mae.clave := HV;
+	FIN_SI;
+Fin_Proc;
+
+Procedimiento LEER_arch_mov;
+	LEER(arch_mov, reg_mov);
+	SI FDA(arch_mov) ENTONCES
+		reg_mov.clave := HV;
+	FIN_SI;
+Fin_Proc;
+
+Procedimiento PASO_DIRECTO;
+	ESCRIBIR(arch_mae_act, reg_mae);
+Fin_Proc;
+
+Procedimiento IGUALES;
+	SI reg_mov.TipoMov = 'A' ENTONCES
+		ESCRIBIR('ERROR - ALTA');
+	SINO
+		SI reg_mov.TipoMov = 'B' ENTONCES
+			reg_mae.Baja := '*';
+			ESCRIBIR(arch_mae_act, reg_mae);
+		SINO
+			SI reg_mov.Campo1 <> '' ENTONCES
+				reg_mae.Campo1 := reg_mov.Campo1;
+			FIN_SI;
+
+			SI reg_mov.Campo2 <> '' ENTONCES
+				reg_mae.Campo2 := reg_mov.Campo2;
+			FIN_SI;			
+
+			[...]
+
+			SI reg_mov.Campo4 <> 0 ENTONCES
+				reg_mae.Campo4 := reg_mov.Campo4;
+			FIN_SI;			
+
+			ESCRIBIR(arch_mae_act, reg_mae);
+		FIN_SI;
+	FIN_SI;
+Fin_Proc;
+
+Procedimiento DISTINTOS;
+	SI reg_mov.TipoMov = 'B' ENTONCES
+		ESCRIBIR('ERROR - BAJA');
+	SINO
+		SI reg_mov.TipoMov = 'M' ENTONCES
+			ESCRIBIR('ERROR - MODIFICACION');
+		SINO
+			reg_mae.Campo1 := reg_mov.Campo1;
+			reg_mae.Campo2 := reg_mov.Campo2;			
+			[...]
+			reg_mae.Campo4 := reg_mov.Campo4;
+			reg_mae.Baja := '-';
+
+			ESCRIBIR(arch_mae_act, reg_mae);
+		FIN_SI;
+	FIN_SI;
+Fin_Proc;
+
+
+PROCESO
+	
+	ABRIRe(arch_mae); ABRIRe(arch_mov);
+	ABRIRs(arch_mae_act);
+
+	LEER_arch_mae; LEER_arch_mov;
+	
+	MIENTRAS (reg_mae.clave <> HV) o (reg_mov.clave <> HV) HACER
+
+		SI reg_mae.clave < reg_mov.clave ENTONCES
+			PASO_DIRECTO;
+			LEER_arch_mae;
+		SINO
+			SI reg_mae.clave = reg_mov.clave ENTONCES
+				IGUALES;
+				LEER_arch_mae;
+				LEER_arch_mov;
+			SINO
+				DISTINTOS;
+				LEER_arch_mov;
+			FIN_SI;
+		FIN_SI;
+
+	FIN_MIENTRAS;
+
+	CERRAR(arch_mae); CERRAR(arch_mov); 
+	CERRAR(arch_mae_act);
+FinAccion.

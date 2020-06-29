@@ -1,0 +1,115 @@
+Accion ACT_INC ES;
+
+Ambiente
+	HV = 99999999;
+
+	mae = REGISTRO
+		clave: Entero;
+		Campo1: AN(50);
+		Campo2: AN(50);
+		Campo3: AN(80);
+		Campo4: Real;
+		Baja: Caracter;
+	fin_registro;	
+
+	mov = REGISTRO
+		clave: Entero;
+		Campo1: AN(50);
+		Campo2: AN(50);
+		Campo3: AN(80);
+		Campo4: Real;
+		TipoMov: ('A', 'B', 'M');
+	fin_registro;	
+
+	aux_mae, reg_mae: mae;
+	arch_mae, arch_mae_act: ARCHIVO de mae;
+
+	reg_mov: mov;
+	arch_mov: ARCHIVO de mov;
+
+Procedimiento LEER_arch_mae;
+	LEER(arch_mae, reg_mae);
+	SI FDA(arch_mae) ENTONCES
+		reg_mae.clave := HV;
+	FIN_SI;
+Fin_Proc;
+
+Procedimiento LEER_arch_mov;
+	LEER(arch_mov, reg_mov);
+	SI FDA(arch_mov) ENTONCES
+		reg_mov.clave := HV;
+	FIN_SI;
+Fin_Proc;
+
+Procedimiento PASO_DIRECTO;
+	ESCRIBIR(arch_mae_act, reg_mae);
+Fin_Proc;
+
+Procedimiento IGUALES;
+	SI reg_mov.TipoMov = 'A' ENTONCES
+		ESCRIBIR('ERROR - ALTA');
+	SINO
+		SI reg_mov.TipoMov = 'B' ENTONCES
+			aux_mae.Baja := '*';			
+		SINO
+			SI reg_mov.Campo1 <> '' ENTONCES
+				aux_mae.Campo1 := reg_mov.Campo1;
+			FIN_SI;
+
+			SI reg_mov.Campo2 <> '' ENTONCES
+				aux_mae.Campo2 := reg_mov.Campo2;
+			FIN_SI;			
+
+			[...]
+
+			SI reg_mov.Campo4 <> 0 ENTONCES
+				aux_mae.Campo4 := reg_mov.Campo4;
+			FIN_SI;			
+
+		FIN_SI;
+	FIN_SI;
+Fin_Proc;
+
+Procedimiento LOTE;
+	MIENTRAS (aux_mae.clave = reg_mov.clave) HACER
+		IGUALES;
+		LEER_arch_mov;
+	FIN_MIENTRAS;
+
+	ESCRIBIR(arch_mae_act, aux_mae);
+Fin_Proc;
+
+
+PROCESO
+	
+	ABRIRe(arch_mae); ABRIRe(arch_mov);
+	LEER_arch_mae; LEER_arch_mov;
+	
+	MIENTRAS (reg_mae.clave <> HV) o (reg_mov.clave <> HV) HACER
+
+		SI reg_mae.clave < reg_mov.clave ENTONCES
+			PASO_DIRECTO;
+			LEER_arch_mae;
+		SINO
+			SI reg_mae.clave = reg_mov.clave ENTONCES
+				aux_mae := reg_mae;
+				LOTE;
+				LEER_arch_mae;				
+			SINO				
+				//HAGO EL ALTA EN AUX...
+				aux_mae.clave := reg_mov.clave;
+				aux_mae.Campo1 := reg_mov.Campo1;
+				aux_mae.Campo2 := reg_mov.Campo2;			
+				[...]
+				aux_mae.Campo4 := reg_mov.Campo4;
+				aux_mae.Baja := '-';
+
+				LOTE;
+			FIN_SI;
+		FIN_SI;
+
+	FIN_MIENTRAS;
+
+	CERRAR(arch_mae); CERRAR(arch_mov); 
+	CERRAR(arch_mae_act);
+FinAccion.
