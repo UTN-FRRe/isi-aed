@@ -1,0 +1,15 @@
+1;Cliente ... Cambio;;1;100;M
+3;;Domicilio ... Cambio;1;-300;M
+4;;;1;0;B
+5;;;1;450;M
+6;;;1;-500;M
+9;Cliente ... 1 - 9;Domicilio ... Sucursal 1;1;5800;A
+10;Cliente ... Perez;;1;0;M
+11;;;1;-600;M
+12;;;1;0;B
+23;Cliente ... 1 - 23;Domicilio ... Sucursal 1;1;5000;A
+24;Cliente ... 1 - Gomez;;1;0;M
+25;;Domicilio ... Barrio Loco;1;0;M
+46;Cliente ... 1 - 46;Domicilio ... Sucursal 1;1;48966;A
+47;Cliente ... 1 - 47;Domicilio ... Sucursal 1;1;9865;A
+50;Cliente ... 1 - 50;Domicilio ... Sucursal 1;1;7852;A

@@ -1,0 +1,54 @@
+Mae: 1 | Mov: 1 | Aux: 0
+[MODIF] 1 --  --  -- 300
+[MODIF] 1 --  --  -- 450
+[MODIF] 1 -- Cliente ... Cambio --  -- 100
+Mae: 2 | Mov: 3 | Aux: 0
+[DIR] 2 -- Cliente ... 1 - 2 -- Domicilio ... Sucursal 1 -- 12589
+Mae: 3 | Mov: 3 | Aux: 0
+[MODIF] 3 --  -- Domicilio ... Cambio -- -300
+[BAJA] 3 -- 
+Mae: 4 | Mov: 5 | Aux: 0
+[DIR] 4 -- Cliente ... 1 - 4 -- Domicilio ... Sucursal 1 -- 2358
+Mae: 5 | Mov: 5 | Aux: 0
+[MODIF] 5 --  --  -- 450
+Mae: 6 | Mov: 9 | Aux: 0
+[DIR] 6 -- Cliente ... 1 - 6 -- Domicilio ... Sucursal 1 -- 8963
+Mae: 10 | Mov: 9 | Aux: 0
+[ALTA] 9 -- Cliente ... 1 - 9 -- Domicilio ... Sucursal 1 -- 5800
+[MODIF] 9 -- Cliente 9 -- Domicilio Barrio 9 -- -800
+[MODIF] 9 --  --  -- -450
+Mae: 10 | Mov: 11 | Aux: 0
+[DIR] 10 -- Cliente ... 1 - 10 -- Domicilio ... Sucursal 1 -- 48966
+Mae: 11 | Mov: 11 | Aux: 0
+[MODIF] 11 --  --  -- -600
+Mae: 12 | Mov: 23 | Aux: 0
+[DIR] 12 -- Cliente ... 1 - 12 -- Domicilio ... Sucursal 1 -- 7852
+Mae: 24 | Mov: 23 | Aux: 0
+[ALTA] 23 -- Cliente ... 1 - 23 -- Domicilio ... Sucursal 1 -- 5000
+Mae: 24 | Mov: 25 | Aux: 0
+[DIR] 24 -- Cliente ... 1 - 24 -- Domicilio ... Sucursal 1 -- 5000
+Mae: 25 | Mov: 25 | Aux: 0
+[MODIF] 25 --  -- Domicilio ... Barrio Loco -- 0
+Mae: 27 | Mov: 47 | Aux: 0
+[DIR] 27 -- Cliente ... 1 - 27 -- Domicilio ... Sucursal 1 -- 85966
+Mae: 30 | Mov: 47 | Aux: 0
+[DIR] 30 -- Cliente ... 1 - 30 -- Domicilio ... Sucursal 1 -- 8963
+Mae: 42 | Mov: 47 | Aux: 0
+[DIR] 42 -- Cliente ... 1 - 42 -- Domicilio ... Sucursal 1 -- 48966
+Mae: 43 | Mov: 47 | Aux: 0
+[DIR] 43 -- Cliente ... 1 - 43 -- Domicilio ... Sucursal 1 -- 9865
+[DIR] 44 -- Cliente ... 1 - 44 -- Domicilio ... Sucursal 1 -- 7852
+Mae: 2147483647 | Mov: 47 | Aux: 0
+[ALTA] 47 -- Cliente ... 1 - 47 -- Domicilio ... Sucursal 1 -- 9865
+[MODIF] 47 -- Cliente 47 -- Domicilio Barrio 47 -- -8000
+[MODIF] 47 --  --  -- -450
+ALTA ERROR - 47 EXISTE EN MAE ACTUAL
+[BAJA] 47 -- 
+[ALTA] 50 -- Cliente ... 1 - 50 -- Domicilio ... Sucursal 1 -- 7852
+Mae: 2147483647 | Mov: 50 | Aux: 50
+[MODIF] 50 --  --  -- -852
+[ALTA] 55 -- Cliente ... 1 - 50 -- Domicilio ... Sucursal 1 -- 7852
+Mae: 2147483647 | Mov: 55 | Aux: 55
+[MODIF] 55 -- Cliente ULTIMO -- Domicilio REGISTRADO -- -450
+[MODIF] 55 --  --  -- -852
+[BAJA] 55 -- 
