@@ -9,35 +9,14 @@ typedef struct nodo {
     struct nodo *prox;
 } nodo_t;
 
-void imprime_lista(nodo_t *prim) {
-    nodo_t *current = prim;
-
-    while (current != NULL) {
-        printf("%d\n", current->val);
-        current = current->prox;
-    }
-}
-
-
-void borrar_lista(nodo_t *prim) {
-    nodo_t  *current = prim, 
-            *prox = prim;
-
-    while (current) {
-        prox = current->prox;
-        free(current);
-        current = prox;
-    }
-}
-
-int main(void) {    
+nodo_t *crea_lista(nodo_t *prim){
     //DEFINO mis punteros de soporte y el de inicio
-    nodo_t *prim = NULL, *q = NULL;
+    nodo_t *q = NULL;
 
     //Variable para carga
     int valor;
 
-    while (valor) {
+    while (1) {
 
         printf("Ingrese valor para el nodo (-1 para salir):");
         scanf("%d", &valor);  
@@ -48,7 +27,7 @@ int main(void) {
         }
 
         //solicito memoria para el nodo
-        q = (nodo_t *) malloc(sizeof(nodo_t));
+        q = (nodo_t *) malloc(sizeof(nodo_t)); //NUEVO(Q)
 
         //Cargo los datos del nodo (valor y puntero)
         q->val = valor;
@@ -59,9 +38,41 @@ int main(void) {
         
     }
 
+    return prim;    
+}
+
+void imprime_lista(nodo_t *prim) {
+    nodo_t *p = prim;
+
+    printf("CONTENIDO DE LA LISTA \n");
+
+    while (p != NULL) {
+        printf("Valor: %d \n", p->val);
+        //printf("Valor: %d \t Direccion del NODO %p \t Direccion del PROX %p \n", p->val, p, p->prox);
+        p = p->prox;
+    }
+}
+
+void libera_lista(nodo_t *prim) {
+    nodo_t  *p = prim, 
+            *prox = prim;
+
+    while (p) {
+        prox = p->prox;
+        free(p);
+        p = prox;
+    }
+}
+
+int main(void) {    
+    //DEFINO mis punteros de soporte y el de inicio
+    nodo_t *prim = NULL;
+
+    prim = crea_lista(prim);
 
     imprime_lista(prim);
-    borrar_lista(prim);
+
+    libera_lista(prim);
 
     return 0;
 }

@@ -9,30 +9,9 @@ typedef struct nodo {
     struct nodo *prox;
 } nodo_t;
 
-void imprime_lista(nodo_t *prim) {
-    nodo_t *current = prim;
-
-    while (current != NULL) {
-        printf("%d\n", current->val);
-        current = current->prox;
-    }
-}
-
-
-void borrar_lista(nodo_t *prim) {
-    nodo_t  *current = prim, 
-            *prox = prim;
-
-    while (current) {
-        prox = current->prox;
-        free(current);
-        current = prox;
-    }
-}
-
-int main(void) {    
+nodo_t *crea_lista(nodo_t *prim){
     //DEFINO mis punteros de soporte y el de inicio
-    nodo_t *prim = NULL, *q = NULL, *ult = NULL;
+    nodo_t *q = NULL, *ult = NULL;
 
     //Variable para carga
     int valor;
@@ -69,10 +48,42 @@ int main(void) {
         q->prox = NULL;
         
     }
+    
+    return prim;    
+}
 
+void imprime_lista(nodo_t *prim) {
+    nodo_t *current = prim;
+
+    printf("CONTENIDO DE LA LISTA \n");
+
+    while (current != NULL) {
+        printf("Valor: %d \n", current->val);
+        //printf("Valor: %d \t Direccion del NODO %p \t Direccion del PROX %p \n", current->val, current, current->prox);
+        current = current->prox;
+    }
+}
+
+void borra_lista(nodo_t *prim) {
+    nodo_t  *current = prim, 
+            *prox = prim;
+
+    while (current) {
+        prox = current->prox;
+        free(current);
+        current = prox;
+    }
+}
+
+int main(void) {    
+    //DEFINO mis punteros de soporte y el de inicio
+    nodo_t *prim = NULL;
+
+    prim = crea_lista(prim);
 
     imprime_lista(prim);
-    borrar_lista(prim);
+
+    borra_lista(prim);
 
     return 0;
 }
