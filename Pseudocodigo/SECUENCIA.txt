@@ -2,6 +2,7 @@ Accion SECUENCIA ES;
 
 Ambiente
 	sec: SECUENCIA de caracter;
+
 	v: caracter;
 
 Procedimiento InicializarSecuencia(VAR sec_local: SECUENCIA de caracter);

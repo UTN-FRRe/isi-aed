@@ -57,6 +57,8 @@ begin
 			
 			//Pausa para ver registro porcesados
 			RecordCount := RecordCount + 1;
+
+			//Muestra bloque de 10 registros y hace una pausa de 2 segundos
 			if RecordCount mod 10 = 0 then delay(2000);
 		end;
 

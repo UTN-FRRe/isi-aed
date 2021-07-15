@@ -18,7 +18,7 @@ procedure saludar(saludo: string);
 
 		encabezado_local := '<TEXTO>: ';
 
-		writeln('***************************'#13#10); 
+		writeln('***************************'#13#10); 		
 		writeln(encabezado_local, saludo,#13#10); 
 		writeln('***************************'); 
 	end;
@@ -30,7 +30,7 @@ begin
 	saludar('PRUEBA CON TEXTO CONSTANTE...');
 
 	//Solicito que se ingrese un texto arbitrario por teclado...
-	writeln('Ingrese texto para saudar: ');
+	writeln('Ingrese texto para saludar: ');
 	readln(texto);
 
 	//Invoco al procedimiento pasando la variable asignada desde el teclado

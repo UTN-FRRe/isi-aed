@@ -15,5 +15,4 @@ Begin
 	c := c + 1;
 	writeln(c);
 
-
 end.

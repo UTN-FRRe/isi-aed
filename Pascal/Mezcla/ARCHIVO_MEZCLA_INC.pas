@@ -88,6 +88,7 @@ begin
 					writeln('Reg 1 MENOR ... Paso Reg 1');
 					writeln(reg_suc1.Cuenta, ' -- ', reg_suc1.Denominacion, ' -- ', reg_suc1.Domicilio, ' -- ', reg_suc1.SucursalId);
 					write(arch_sal, reg_suc1);
+					delay(200);
 
 					LeerArch(arch_suc1, reg_suc1);					
 				end
@@ -101,6 +102,7 @@ begin
 						//Paso registro archivo 2 -- en segundo lugar
 						writeln(reg_suc2.Cuenta, ' -- ', reg_suc2.Denominacion, ' -- ', reg_suc2.Domicilio, ' -- ', reg_suc2.SucursalId);
 						write(arch_sal, reg_suc2);
+						delay(200);
 
 						LeerArch(arch_suc1, reg_suc1);
 						LeerArch(arch_suc2, reg_suc2);
@@ -112,7 +114,8 @@ begin
 						//Paso registro archivo 2 -- en segundo lugar
 						writeln(reg_suc2.Cuenta, ' -- ', reg_suc2.Denominacion, ' -- ', reg_suc2.Domicilio, ' -- ', reg_suc2.SucursalId);
 						write(arch_sal, reg_suc2);
-
+						delay(200);
+						
 						LeerArch(arch_suc2, reg_suc2);
 					end;
 

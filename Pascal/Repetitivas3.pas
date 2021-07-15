@@ -8,7 +8,7 @@ begin
 	ClrScr; {Limpio la pantalla}
 	{ NO LO NECESITO ... c:= 1; }
 	
-	for c := 1 to 10 do
+	for c := 10 downto 0 do
 
 		writeln(c);
 

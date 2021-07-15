@@ -1,10 +1,11 @@
 Accion SI ES;
 
 Ambiente
+
 	c: entero;
 
-Algoritmo
-	
+Proceso
+
 	Escribir('Ingrese un valor entero, vamos a verificar si es multiplo de 10...')
 	Leer(c);
 	

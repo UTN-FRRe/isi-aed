@@ -14,6 +14,6 @@ begin
 
 		c := c + 1;
 
-	until c > 10;
+	until c > 0;
 	
 end.

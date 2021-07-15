@@ -100,9 +100,10 @@ Proceso
 		
 			LEER(arch, reg);
 
-		FIN_MIENTRAS;
+	FIN_MIENTRAS;
 
 	CorteClave1;
+	
 	EmitirTotalesGenerales;
 	CERRAR(arch);
 

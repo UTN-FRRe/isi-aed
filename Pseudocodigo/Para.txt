@@ -7,7 +7,7 @@ Algoritmo
 	
 	{no necesito hacer: c := 1}
 
-	Para c := 1 hasta 10 hacer 
+	Para c := 1 hasta 10, 1 hacer 
 		
 		Escribir (c);
 		

@@ -29,23 +29,23 @@ Algoritmo
 		ESCRIBIR('Ingrese los datos de la persona...');
 
 		ESCRIBIR('Ingrese Nombre...');		
-		LEER(reg.nombre)
+		LEER(reg.nombre);
 
 		ESCRIBIR('Ingrese Domicilio...');		
-		LEER(reg.dir)
+		LEER(reg.dir);
 
 		ESCRIBIR('Ingrese E-Mail...');		
-		LEER(reg.mail)
+		LEER(reg.mail);
 
 		ESCRIBIR('Ingrese Fecha de Nacimiento...');		
 		ESCRIBIR('Ingrese Dia...');		
-		LEER(reg.fecha_nac.dia)
+		LEER(reg.fecha_nac.dia);
 
 		ESCRIBIR('Ingrese mes...');		
-		LEER(reg.fecha_nac.mes)
+		LEER(reg.fecha_nac.mes);
 
 		ESCRIBIR('Ingrese Año...');		
-		LEER(reg.fecha_nac.año)
+		LEER(reg.fecha_nac.año);
 
 		ESCRIBIR(arch, reg);
 

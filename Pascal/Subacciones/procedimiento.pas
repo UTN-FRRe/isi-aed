@@ -15,12 +15,11 @@ procedure saludar(saludo: string);
 
 
 begin
-	
 	//Invoco al procedimiento pasando un valor constante...
 	saludar('PRUEBA CON TEXTO CONSTANTE...');
 
 	//Solicito que se ingrese un texto arbitrario por teclado...
-	writeln('Ingrese texto para saudar: ');
+	writeln('Ingrese texto para saludar: ');
 	readln(texto);
 
 	//Invoco al procedimiento pasando la variable asignada desde el teclado

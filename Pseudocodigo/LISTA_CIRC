@@ -1,0 +1,26 @@
+Accion Lista_Circ es (PRIM: puntero a NODO);
+
+Ambiente
+
+	NODO = REGISTRO
+			DATO: Entero;
+			prox: PUNTERO A NODO;
+	FIN REGISTRO;
+
+	P, Q, ANT: PUNTERO A NODO;
+	band: logico;
+
+Proceso
+
+	P := PRIM;
+	
+	MIENTRAS (*P.prox <> PRIM) HACER
+			escribir(*P.dato)
+
+			P := *P.prox;
+	FIN  MIENTRAS
+
+	//Ultimo nodo
+	escribir(*P.dato)
+
+Fin_Accion;

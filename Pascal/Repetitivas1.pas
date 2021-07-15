@@ -2,7 +2,7 @@ program MIENTRAS;
 uses crt;
 
 var
-	c: integer;
+	c: integer; 
 
 begin
 	ClrScr; {Limpio la pantalla}
@@ -14,6 +14,7 @@ begin
 
 			writeln(c);
 		
+			{Accion de control}
 			c := c + 1;
 
 		end;
