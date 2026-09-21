@@ -45,8 +45,10 @@ def imprime_lista(prim):
     p = prim
     while p.prox != prim:
         print(f"Valor: {p.val}")
+        # print(f"Dirección (id) del nodo: {id(p)}")
         p = p.prox
     print(f"Valor: {p.val}")
+    # print(f"Dirección (id) del nodo: {id(p)}")
 
 def borra_lista(prim):
     if prim is None:

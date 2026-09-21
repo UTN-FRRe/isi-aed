@@ -27,6 +27,7 @@ def imprime_lista(prim):
     current = prim
     while current:
         print(f"Valor: {current.val}")
+        # print(f"Dirección (id) del nodo: {id(current)}")
         current = current.prox
 
 def borra_lista(prim):

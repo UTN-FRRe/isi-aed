@@ -51,8 +51,10 @@ def imprime_lista(prim, ult):
     p = prim
     while p != ult:
         print(f"Valor: {p.val}")
+        # print(f"Dirección (id) del nodo: {id(p)}")
         p = p.prox
     print(f"Valor: {p.val}")
+    # print(f"Dirección (id) del nodo: {id(p)}")
 
 def imprime_lista_reversa(prim, ult):
     print("CONTENIDO DE LA LISTA -- REVERSA")
@@ -62,8 +64,10 @@ def imprime_lista_reversa(prim, ult):
     p = ult
     while p != prim:
         print(f"Valor: {p.val}")
+        # print(f"Dirección (id) del nodo: {id(p)}")
         p = p.ant
     print(f"Valor: {p.val}")
+    # print(f"Dirección (id) del nodo: {id(p)}")
 
 def libera_lista(prim, ult):
     print("LIBERANDO LA LISTA")

@@ -46,6 +46,7 @@ def imprime_lista(prim):
     p = prim
     while p:
         print(f"Valor: {p.val}")
+        # print(f"Dirección (id) del nodo: {id(p)}")
         p = p.prox
 
 def imprime_lista_reversa(ult):
@@ -53,6 +54,7 @@ def imprime_lista_reversa(ult):
     p = ult
     while p:
         print(f"Valor: {p.val}")
+        # print(f"Dirección (id) del nodo: {id(p)}")
         p = p.ant
 
 def borra_lista(prim, ult):
