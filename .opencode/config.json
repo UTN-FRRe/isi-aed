@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "websearch": {
+      "type": "local",
+      "command": ["npx", "-y", "@gabrimatic/mcp-web-search-tool"],
+      "enabled": true
+    },
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem"],
+      "enabled": true
+    },
+    "shell": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-shell"],
+      "enabled": true
+    }
+  }
+}

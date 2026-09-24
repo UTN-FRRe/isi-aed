@@ -34,7 +34,8 @@ def imprime_lista(prim):
     p = prim
     while p:
         print(f"Valor: {p.val}")
-        # print(f"Dirección (id) del nodo: {id(p)}")
+        print(f"Dirección (id) del nodo: {(p)}")
+        print(f"Dirección (id) del prox: {(p.prox)}")
         p = p.prox
 
 def libera_lista(prim):
